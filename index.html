@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chúc Mừng Sinh Nhật Cốt - Đạo Lý Giang Hồ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient background container -->
+  <div class="stage-container">
+
+    <!-- Background Canvas for Kaleidoscope, Disco Lights & Confetti -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Phone / TikTok Frame Container (9:16 optimized, responsive, NO SCROLL) -->
+    <main class="card-viewport" id="cardViewport">
+
+      <!-- Sparkling Flower / Heart Bursts Overlay Canvas ("Bông hoa ẩn hiện chạy xung quanh") -->
+      <canvas id="fxCanvas"></canvas>
+
+      <!-- Neon Top Header -->
+      <header class="top-header">
+        <div class="neon-title-wrapper">
+          <h1 class="neon-text glow-gold">🎂 HAPPY BIRTHDAY 🎂</h1>
+          <p class="neon-subtitle">Chúc Mừng Sinh Nhật Cốt</p>
+        </div>
+      </header>
+
+      <!-- Corner Golden Roses -->
+      <div class="corner-rose top-left">
+        <div class="rose-halo"></div>
+        <img src="assets/images/yellow_rose.jpg" alt="Hoa vàng" class="rose-img blend-screen">
+        <div class="sparkle-star s1">✨</div>
+      </div>
+
+      <div class="corner-rose top-right">
+        <div class="rose-halo"></div>
+        <img src="assets/images/yellow_rose.jpg" alt="Hoa vàng" class="rose-img blend-screen mirror">
+        <div class="sparkle-star s2">✨</div>
+      </div>
+
+      <!-- Center Slideshow Stage -->
+      <div class="photo-stage-wrapper">
+        <div class="neon-border-frame">
+          <div class="neon-glow-line"></div>
+
+          <div class="slides-container" id="slidesContainer">
+            <!-- Slide 1 -->
+            <div class="photo-slide active" data-index="0">
+              <div class="img-wrapper">
+                <img src="assets/images/photo1.png" alt="Ảnh sinh nhật 1" class="main-photo">
+                <div class="photo-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <span class="badge">⚔️ CHIẾN THẦN BẢN LĨNH</span>
+                <p class="quote">"Tiền ngoài xã hội nhiều lắm, bản lĩnh ra xã hội lấy tiền!"</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="photo-slide" data-index="1">
+              <div class="img-wrapper">
+                <img src="assets/images/photo2.png" alt="Ảnh sinh nhật 2" class="main-photo">
+                <div class="photo-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <span class="badge">🍻 HUYNH ĐỆ NGHĨA KHÍ</span>
+                <p class="quote">"Sống cho đời nể, sống khỏe cùng anh em!"</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="photo-slide" data-index="2">
+              <div class="img-wrapper">
+                <img src="assets/images/photo3.png" alt="Ảnh sinh nhật 3" class="main-photo">
+                <div class="photo-shimmer"></div>
+              </div>
+              <div class="photo-caption">
+                <span class="badge">✨ FASHIONISTA ĐẲNG CẤP</span>
+                <p class="quote">"Tuổi mới tiền vô như nước, phong độ ngời ngời!"</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide Controls -->
+          <button class="nav-btn prev-btn" id="prevBtn" aria-label="Ảnh trước">‹</button>
+          <button class="nav-btn next-btn" id="nextBtn" aria-label="Ảnh kế">›</button>
+
+          <!-- Slide Indicators -->
+          <div class="indicators" id="indicators">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Floating Roses & Garland -->
+      <div class="bottom-garland">
+        <!-- Giant Center-Left Red Rose (Signature from video) -->
+        <div class="giant-red-rose-box">
+          <div class="red-rose-glow"></div>
+          <img src="assets/images/red_rose.jpg" alt="Hoa hồng nhung đỏ" class="red-rose-img blend-screen">
+          <div class="sparkle-burst">💖</div>
+        </div>
+
+        <!-- Bottom Right Yellow Rose -->
+        <div class="corner-rose bottom-right">
+          <div class="rose-halo"></div>
+          <img src="assets/images/yellow_rose.jpg" alt="Hoa vàng" class="rose-img blend-screen">
+          <div class="sparkle-star s3">✨</div>
+        </div>
+      </div>
+
+      <!-- Bottom Controls with Ticker & Bank Gift Form -->
+      <footer class="bottom-controls">
+        <div class="quote-ticker">
+          <div class="ticker-content">
+            🔥 TIỀN NGOÀI XÃ HỘI NHIỀU LẮM • ANH EM CỨ NHẬP STK VÀ NGÂN HÀNG ĐỂ BẮN TIỀN TẶNG QUÀ CHO CỐT 🔥
+          </div>
+        </div>
+
+        <!-- Bank Gift Form (Nhập tên ngân hàng & số tài khoản) -->
+        <div class="bank-gift-box">
+          <div class="bank-gift-header">
+            <span class="bank-title">💸 TẶNG TIỀN MỪNG SINH NHẬT 💸</span>
+          </div>
+          <form class="bank-form" id="bankForm" onsubmit="return false;">
+            <div class="input-row">
+              <div class="input-field">
+                <label for="bankName">🏦 Ngân hàng</label>
+                <input type="text" id="bankName" placeholder="MBBank, VCB, TPBank..." required autocomplete="off">
+              </div>
+              <div class="input-field">
+                <label for="accountNumber">🔢 Số tài khoản</label>
+                <input type="text" id="accountNumber" placeholder="Nhập STK nhận tiền..." required autocomplete="off">
+              </div>
+            </div>
+            <button type="submit" class="submit-gift-btn" id="submitGiftBtn">
+              🎁 GỬI STK
+            </button>
+          </form>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Troll Dialog Modal ("CÓ CC NÈ 8==D") -->
+  <div class="troll-modal" id="trollModal">
+    <div class="troll-card">
+      <div class="troll-badge">🔥 THÔNG BÁO TẶNG QUÀ 🔥</div>
+      <div class="troll-icon">🤣🍆💀</div>
+      <div class="troll-message">CÓ CC NÈ 8==D</div>
+      <p class="troll-sub">Tưởng bở được bắn tiền hả? Sống đạo lý lên anh bạn ơi! 🍻</p>
+      <button class="troll-btn" id="closeTrollBtn">DẠ EM BIẾT RỒI ĐẠI CA 🤙</button>
+    </div>
+  </div>
+
+  <!-- Audio Elements (2 bài phối lồng vào nhau, tự động phát) -->
+  <audio id="audioGiangHo" src="assets/audio/sound_giangho.mp3" preload="auto" loop autoplay></audio>
+  <audio id="audioPhanDinhTung" src="assets/audio/sound_phandinhtung.mp3" preload="auto" loop autoplay></audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
